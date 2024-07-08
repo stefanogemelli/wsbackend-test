@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
 
   socket.on("message:new", (arg) => {
     console.log("message", arg);
-    socket.broadcast.emit("message:sv", { id: arg.id, data: "sv_" + arg.data });
+    socket.broadcast.emit("message:sv", { id: arg.id, data: arg.data + " from server" });
   });
 });
 
