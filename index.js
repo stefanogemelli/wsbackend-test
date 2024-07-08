@@ -1,7 +1,9 @@
 import express from "express";
 import { config } from "dotenv";
 
-const { FRONTEND_URL } = config().parsed;
+config();
+
+const { FRONTEND_URL } = process.env;
 
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -15,8 +17,7 @@ server.get("/", (req, res) => {
 const httpServer = createServer(server);
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://wsfrontend-test.vercel.app",
-    // origin: FRONTEND_URL,
+    origin: FRONTEND_URL,
     credentials: true,
   },
 });
