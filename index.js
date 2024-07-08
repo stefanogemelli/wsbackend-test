@@ -15,7 +15,7 @@ server.get("/", (req, res) => {
 const httpServer = createServer(server);
 const io = new Server(httpServer, {
   cors: {
-    origin: "*",
+    origin: "https://wsfrontend-test.vercel.app",
     // origin: FRONTEND_URL,
     credentials: true,
   },
