@@ -15,7 +15,8 @@ server.get("/", (req, res) => {
 const httpServer = createServer(server);
 const io = new Server(httpServer, {
   cors: {
-    origin: FRONTEND_URL,
+    origin: "*",
+    // origin: FRONTEND_URL,
     credentials: true,
   },
 });
